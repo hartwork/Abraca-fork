@@ -67,4 +67,5 @@ bld.program(
     vapi_dirs    = '../vapi ../external',
     vala_defines = bld.env.VALADEFINES,
     vala_target_glib = '2.40',
+    includes     = '..',  # for build-config.h
 )
