@@ -32,7 +32,7 @@ def configure(conf):
 
 	conf.env.VALADEFINES = []
 
-	if conf.check_cc(function_name='xmmsc_coll_query', header_name='xmmsclient/xmmsclient.h', uselib='XMMS2-CLIENT', mandatory=False):
+	if conf.check_cc(fragment='#include <xmmsclient/xmmsclient.h>\nint main(void) { xmmsc_coll_query(0, 0, 0); return 0; }', header_name='xmmsclient/xmmsclient.h', uselib='XMMS2-CLIENT', mandatory=False, msg="Checking for function xmmsc_coll_query"):
 		conf.env.VALADEFINES.append('XMMS_API_COLLECTIONS_TWO_DOT_ZERO')
 
 	conf.env.VALADEFINES.append('DEST_OS_' + conf.env.DEST_OS.upper())
